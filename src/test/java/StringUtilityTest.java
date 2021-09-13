@@ -17,5 +17,10 @@ class StringUtilityTest {
         assertFalse(StringUtility.checkPalindrome("abl 3"));
     }
 
+    @Test
+    void checkRemoveCharacter() {
+        assertEquals("abc", StringUtility.removeCharacter("ab3c", 2));
+        assertEquals("ab", StringUtility.removeCharacter("ab", 3));
+    }
 
 }
