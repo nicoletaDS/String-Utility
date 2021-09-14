@@ -21,11 +21,11 @@ public final class StringUtility {
      * @return the word in the reverse order.
      */
     public static String reverse(String word) {
-        String reversedWord = "";
+        StringBuilder reversedWord = new StringBuilder();
         for(int i=word.length()-1; i>=0; i--) {
-            reversedWord = reversedWord.concat(String.valueOf(word.charAt(i)));
+            reversedWord.append(word.charAt(i));
         }
-        return reversedWord;
+        return reversedWord.toString();
     }
 
     /**
@@ -49,16 +49,7 @@ public final class StringUtility {
      * @return a new String that does not contain the character at position index
      */
     public static String removeCharacter(String word, int index) {
-        // if the index is greater than the length of the word,
-        // nothing will be removed
-        if (index >= word.length()) return word;
-
-        String newString = "";
-        for(int i=word.length()-1; i>=0; i--) {
-            if(index != i)
-                newString = newString.concat(String.valueOf(word.charAt(i)));
-        }
-        return newString;
+        return word.substring(0, index) + word.substring(index + 1);
     }
 
     /**
