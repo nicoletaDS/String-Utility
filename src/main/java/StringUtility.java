@@ -3,7 +3,7 @@
  * This class contains some String useful methods.
  */
 
-public class StringUtility {
+public final class StringUtility {
 
     /**
      * Constructs a new instance of {@link StringUtility}.
@@ -91,8 +91,7 @@ public class StringUtility {
      * @return a new string, with the first character capitalized
      */
     public static String capitalize(String word) {
-        String firstLetter = word.charAt(0) + "";
-        return firstLetter.toUpperCase() + word.subSequence(1, word.length()-1);
+        return word.substring(0, 1).toUpperCase() + word.substring(1);
     }
 
     /**
