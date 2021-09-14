@@ -49,6 +49,10 @@ public class StringUtility {
      * @return a new String that does not contain the character at position index
      */
     public static String removeCharacter(String word, int index) {
+        // if the index is greater than the length of the word,
+        // nothing will be removed
+        if (index >= word.length()) return word;
+
         String newString = "";
         for(int i=word.length()-1; i>=0; i--) {
             if(index != i)
@@ -57,5 +61,50 @@ public class StringUtility {
         return newString;
     }
 
+    /**
+     * Check if one word an anagram from the other is.
+     *
+     * A word is an anagram from another one if it contains only characters from
+     * the second, but in a different order.
+     *
+     * @param word1 the word to be checked
+     * @param word2 the reference word
+     */
+    public static boolean isAnagram(String word1, String word2) {
+        // if the length of the words are different, this can not be anagrams
+        if (word1.length() != word2.length()) return false;
 
+        // check if every letter from word1 is contained in word2
+        // if it is, remove if from word2(letters) to not be checked again
+        // (in case one letter appears more than once in word1)
+        String letters = word2;
+        for (int i = 0; i < word1.length(); i++) {
+            if (letters.indexOf(word1.charAt(i)) != -1)
+                return false;
+            else
+                letters = StringUtility.removeCharacter(letters, i);
+        }
+        return true;
+    }
+
+    /**
+     * @return a new string, with the first character capitalized
+     */
+    public static String capitalize(String word) {
+        String firstLetter = word.charAt(0) + "";
+        return firstLetter.toUpperCase() + word.subSequence(1, word.length()-1);
+    }
+
+    /**
+     * @param word a string where there character should be searched for
+     * @param character the searched char in word
+     * @return the number of appearances in word of the provided character
+     */
+    public static int countCharacter(String word, char character) {
+        int appearances = 0;
+        for (int i = 0; i < word.length(); i++) {
+            if (character == word.charAt(i)) appearances++;
+        }
+        return appearances;
+    }
 }

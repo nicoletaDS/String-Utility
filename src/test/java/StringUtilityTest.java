@@ -23,4 +23,23 @@ class StringUtilityTest {
         assertEquals("ab", StringUtility.removeCharacter("ab", 3));
     }
 
+    @Test
+    void checkIsAnagram() {
+        assertTrue(StringUtility.isAnagram("abcd", "dacb"));
+        assertTrue(StringUtility.isAnagram("a2cg", "2gca"));
+        assertFalse(StringUtility.isAnagram("adda", "da"));
+    }
+
+    @Test
+    void checkCapitalize() {
+        assertEquals("1abcd", StringUtility.capitalize("1abcd"));
+        assertEquals("Abcd", StringUtility.capitalize("Abcd"));
+    }
+
+    @Test
+    void countCharacter() {
+        assertEquals(2, StringUtility.countCharacter("addab", 'a'));
+        assertEquals(0, StringUtility.countCharacter("abcd", 'x'));
+    }
+
 }
