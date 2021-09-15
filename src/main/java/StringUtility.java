@@ -1,6 +1,6 @@
 
 /**
- * This class contains some String useful methods.
+ * This utility class provides functionality for {@link String} instances.
  */
 
 public final class StringUtility {
